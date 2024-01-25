@@ -10,37 +10,32 @@ using namespace std;
 class Solution {
 public:
     bool isPossibleSolution(vector<int>&stalls,int n,int k,long long sol){
-        long long pos = stalls[0];
+        long long pos = stalls[0];//first cow 
         int count = 1;
         for(int i = 1;i<n;i++){
-            if(stalls[i]-pos>sol){
+            if(stalls[i]-pos>=sol){
                 count++;
-                pos=stalls[i];
-            if(count>=k){
-                return false;
+                pos = stalls[i];
             }
-            }
+            
         }
-        return true;
+        return (count>=k);
     }
     int solve(int n, int k, vector<int> &stalls) {
     
         // Write your code here
         sort(stalls.begin(),stalls.end());
         long long start = 0;
-        long long end =0;
-        for(int i = 0;i<n;i++){
-            end+=stalls[i];
-        }
+        long long end =stalls[n-1];
         long long mid = start+(end-start)/2;
         long long ans = -1;
         while(start<=end){
             if(isPossibleSolution(stalls,n,k,mid)){
                 ans = mid;
-                end = mid-1;
+                start = mid+1;
             }
             else{
-                start = mid+1;
+               end = mid-1;
             }
             mid = start+(end-start)/2;
         }
