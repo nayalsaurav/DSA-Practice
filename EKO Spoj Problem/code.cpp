@@ -1,5 +1,6 @@
 #include <iostream>
 #include<algorithm>
+#include<limits.h>
 using namespace std;
 //predicate function
 bool isPossibleSolution(int arr[], int n, int len, int mid) {
@@ -26,9 +27,10 @@ int main() {
  
   int start = 0;
   int end = INT_MIN;
-    for(int i = 0;i<n;i++){
+    for(int i = 0;i<N;i++){
         if(arr[i]>end){
            end = arr[i]; 
+    }
     }
   int ans = -1;
   //apply binary search
