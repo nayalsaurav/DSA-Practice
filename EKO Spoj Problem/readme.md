@@ -22,12 +22,13 @@ The second line of input contains N space-separated positive integers less than 
 Input:
 4 7
 20 15 10 17
-
+<br>
 Output:
 15
+<br>
 Input:
 5 20
 4 42 40 26 46
-
+<br>
 Output:
 36
