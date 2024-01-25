@@ -18,14 +18,14 @@ The second line of input contains N space-separated positive integers less than 
 <p>The first and only line of output must contain the required height setting.
 </p>
 <h3><b>Example</b></h3>
-<br>
+
 Input:
 4 7<br>
 20 15 10 17
 <br>
 Output:
 15
-<br><br>
+<br>
 Input:
 5 20<br>
 4 42 40 26 46
