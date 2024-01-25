@@ -23,9 +23,13 @@ int main() {
   for(int i = 0;i<N;i++){
   	cin>>arr[i];
   }
-  sort(arr,arr+N);//sort the array to create search space
+ 
   int start = 0;
-  int end = arr[N-1];
+  int end = INT_MIN;
+    for(int i = 0;i<n;i++){
+        if(arr[i]>end){
+           end = arr[i]; 
+    }
   int ans = -1;
   //apply binary search
   while(start<=end){
