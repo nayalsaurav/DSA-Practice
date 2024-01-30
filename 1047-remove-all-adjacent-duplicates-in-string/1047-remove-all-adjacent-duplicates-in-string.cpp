@@ -1,23 +1,20 @@
 class Solution {
 public:
     string removeDuplicates(string s) {
-        //initialize temp string
-        string temp ="";
-        //initial
-        temp.push_back(s[0]);
-        int i = 1;
-        int j =-1;
-        for(int i=1;i<s.length();i++){
-            //check the rightmost element in temp
-            if(j+1<s.length()&&s[i]==temp[j+1]){
-                temp.pop_back();
-                j--;
+        //initialize ans string
+        string ans ="";
+        int i=0;
+        while(i<s.length()){
+            //check ans ka rightmost element and given string ka element
+            if(ans.length()>0&&ans[ans.length()-1]==s[i]){
+                //ans se pop kardo
+                ans.pop_back();
             }
             else{
-                temp.push_back(s[i]);
-                j++;
+                ans.push_back(s[i]);
             }
+            i++;
         }
-        return temp;
+        return ans;
     }
 };
