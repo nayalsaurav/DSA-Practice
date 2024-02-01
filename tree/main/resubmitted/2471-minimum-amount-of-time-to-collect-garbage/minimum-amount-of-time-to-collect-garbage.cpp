@@ -3,6 +3,8 @@ public:
     // step 1 : calculate pick up time and the last house index to pick garbage from for each type.
     // step 2: using last house index of each type of garbage we calculte travel time.
     // step 3: we finalize our ans using pick up time and travel time.
+
+    //t.c O(n*m)
     int garbageCollection(vector<string>& garbage, vector<int>& travel) {
         
         int pickP=0;
@@ -47,10 +49,7 @@ public:
         for(int i=0;i<lastM;i++){
             travelM+=travel[i];
         }
-
         int finalAns = (pickP+travelP)+(pickG+travelG)+(pickM+travelM);
         return finalAns;
-
-
     }
 };
