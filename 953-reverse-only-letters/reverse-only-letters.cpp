@@ -4,7 +4,7 @@ public:
         int i=0;
         int j = s.size()-1;
 
-        while(i<=j){
+        while(i<j){
             if((s[i]<'a'||s[i]>'z')&&(s[i]<'A'||s[i]>'Z')||(s[i]>='1'&&s[i]<='9')){
                 i++;
             }
