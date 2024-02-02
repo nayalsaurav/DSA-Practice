@@ -1,22 +1,19 @@
 class Solution {
 public:
     string reverseOnlyLetters(string s) {
-        int i=0;
-        int j = s.size()-1;
+        int i = 0;
+        int j = s.size() - 1;
 
-        while(i<j){
-            if((s[i]<'a'||s[i]>'z')&&(s[i]<'A'||s[i]>'Z')||(s[i]>='1'&&s[i]<='9')){
+        while (i < j) {
+            if (!isalpha(s[i])) {
                 i++;
-            }
-            else if((s[j]<'a'||s[j]>'z')&&(s[j]<'A'||s[j]>'Z')||(s[j]>='1'&&s[j]<='9')){
+            } else if (!isalpha(s[j])) {
                 j--;
-            }
-            else{
-            swap(s[i],s[j]);
-            i++;
-            j--;
+            } else {
+                swap(s[i++], s[j--]);
             }
         }
+
         return s;
     }
 };
