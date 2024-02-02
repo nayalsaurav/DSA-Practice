@@ -36,3 +36,30 @@ public:
         return ans;
     }
 };
+
+class Solution {
+public:
+    void convertToPattern(string& s) {
+        vector<char> cmap(26, 0);
+        char start = 'a';
+        for (auto &ch : s) {
+            if (cmap[ch - 'a'] == 0) {
+                cmap[ch - 'a'] = start;
+                start++;
+            }
+            ch = cmap[ch - 'a'];
+        }
+    }
+    vector<string> findAndReplacePattern(vector<string>& words,string pattern) {
+        vector<string> ans;
+        convertToPattern(pattern);
+        for (auto str : words) {
+            string temp = str;
+            convertToPattern(str);
+            if (str == pattern) {
+                ans.push_back(temp);
+            }
+        }
+        return ans;
+    }
+};
