@@ -5,7 +5,7 @@ public:
         int prev=1;
         vector<int>rowCount;
         for(auto str:bank){
-            int count=0;
+            int count=0;  //we can also use count stl
             for(auto ch:str){
                 if(ch=='1'){
                     count++;
@@ -25,3 +25,4 @@ public:
 
     }
 };
+
