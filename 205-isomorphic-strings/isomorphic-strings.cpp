@@ -1,24 +1,24 @@
-#include <vector>
-
 class Solution {
 public:
-    string createGenericMapping(string str) {
-        vector<char> cmap(256, 0);
-        char start = 'a';
-        string result;
-
-        for (auto ch : str) {
-            if (cmap[ch] == 0) {
-                cmap[ch] = start;
-                start++;
-            }
-            result.push_back(cmap[ch]);
-        }
-
-        return result;
-    }
-
     bool isIsomorphic(string s, string t) {
-        return createGenericMapping(s) == createGenericMapping(t);
+        vector<char>smap(256,0);
+        vector<char>tmap(256,0);
+
+        for(int i=0;i<s.size();i++){
+            if(smap[t[i]]==0){
+                smap[t[i]]=s[i];
+            }
+            if(tmap[s[i]]==0){
+                tmap[s[i]]=t[i];
+            }
+
+            if(smap[t[i]]!=s[i]||tmap[s[i]]!=t[i]){
+                return false;
+            }
+        }
+        return true;
+
+
+
     }
 };
