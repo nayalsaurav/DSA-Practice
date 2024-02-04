@@ -1,15 +1,23 @@
 class Solution {
 public:
     int minimumTimeToInitialState(string word, int k) {
-        int timeTaken =0;
-        string initial = word;
-        while(!word.empty()){
-            word.erase(0,k);
-            timeTaken++;
-            if(initial.substr(0,word.size())==word){
-                return timeTaken;
+        int n = word.length();
+
+        for(int i=1;i<=n;i++){  // time required
+            int d = i*k;
+            if(d>=n) return i;
+            bool ok=true;
+            for(int j=d;j<n;j++){
+                if(word[j]!=word[j-d]){
+                    ok = false;
+                    break;
+                }
+            }
+            if(ok){
+                return i;
             }
         }
-        return timeTaken;
+        return 0;
+        
     }
 };
