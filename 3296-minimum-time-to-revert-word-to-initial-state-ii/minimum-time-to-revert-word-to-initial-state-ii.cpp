@@ -8,7 +8,7 @@ public:
         while (index < word.size()) {
             index += k;
             timeTaken++;
-
+            //The parameters of compare are (position1, length1, str, position2, length2)
             if (index <= word.size() && initial.compare(0, word.size() - index, word, index, word.size() - index) == 0) {
                 return timeTaken;
             }
