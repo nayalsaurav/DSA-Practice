@@ -21,9 +21,10 @@ public:
             string even = expand(center, center + 1, s);
             string temp = longestString(even, odd);
             ans = longestString(ans, temp);
-            if ((n - center) * 2 + 1 <= ans.length() || (n - center) * 2 <= ans.length()) {
-            break;
-        }
+            if ((n - center) * 2 + 1 <= ans.length() ||  //maximum possible odd str
+                (n - center) * 2 <= ans.length()) {      //maximum possible even str
+                break;   
+            }
         }
         return ans;
     }
