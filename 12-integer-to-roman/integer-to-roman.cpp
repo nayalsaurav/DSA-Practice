@@ -1,10 +1,15 @@
 class Solution {
 public:
     string intToRoman(int num) {
-        string ones[] = {"","I","II","III","IV","V","VI","VII","VIII","IX"};//0 to 9
-        string tens[] = {"","X","XX","XXX","XL","L","LX","LXX","LXXX","XC"};//10 to 90
-        string hrns[] = {"","C","CC","CCC","CD","D","DC","DCC","DCCC","CM"};//100 to 900
-        string ths[]={"","M","MM","MMM"};//1000 to 3000
-        return ths[num/1000] + hrns[(num%1000)/100] + tens[(num%100)/10] + ones[num%10];
+        string roman[13]={"I","IV","V","IX","X","XL","L","XC","C","CD","D","CM","M"};
+        int values[13]={1,4,5,9,10,40,50,90,100,400,500,900,1000};
+        string ans="";
+        for(int i=12;i>=0;i--){
+            while(num>=values[i]){
+                ans = ans+roman[i];
+                num=num-values[i];
+            }
+        }
+        return ans;
     }
 };
