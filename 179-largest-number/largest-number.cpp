@@ -11,7 +11,7 @@ public:
         }
         // using custom sort to sort string vector
         sort(ans.begin(),ans.end(),compare);
-        if(ans[0]=="0") return "0";
+        if(ans[0]=="0") return "0";// special case 
         // storing the result
         string result="";
         for(auto& s:ans){
