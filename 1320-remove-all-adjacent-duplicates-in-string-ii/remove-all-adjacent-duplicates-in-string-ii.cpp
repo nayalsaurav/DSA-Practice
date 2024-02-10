@@ -1,27 +1,21 @@
 class Solution {
 public:
     string removeDuplicates(string s, int k) {
-        vector<pair<char, int>> temp;
-        // Iterate through the input string
-        for (auto ch : s) {
-            // If the vector is empty or the current character is different from the last one
-            if (temp.empty() || temp.back().first != ch) {
-                temp.push_back({ch, 1});
-            } else {
-                // If the current character is the same as the last one
-                temp.back().second++;
-                // If the count reaches k, remove the last element from the vector
-                if (temp.back().second == k) {
-                    temp.pop_back();
-                }
+        int n = s.length();
+        vector<int>count(n,0);
+        int i=0;
+        int j = 0;
+        while(j<n){
+            s[i]=s[j];
+            count[i]=1;
+            if(i>0&&s[i-1]==s[i]){
+                count[i]+=count[i-1];
             }
+            if(count[i]==k){
+                i-=k;
+            }
+            i++;j++;
         }
-        
-        // Construct the result string based on the pairs in the vector
-        string result = "";
-        for (auto& p : temp) {
-            result += string(p.second, p.first);
-        }
-        return result;
+        return s.substr(0,i);
     }
 };
