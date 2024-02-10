@@ -8,19 +8,14 @@ public:
             temp.push_back(hh + mm);
         }
         sort(temp.begin(), temp.end());
-        for (auto i : temp) {
-            cout << i << " ";
-        }
-        cout << endl;
         int ans = INT_MAX;
-        // circular check
-        for (int i = 0; i <temp.size(); i++) {
-            int currentDifference = temp[i]-temp[(i + 1) % temp.size()];
-            int circularDifference = temp[(i + 1) % temp.size()]-temp[i] + 1440;
-            int diff = min(abs(currentDifference), abs(circularDifference));
-            // cout<<diff<<endl;
-            ans = min(ans, diff);
+        for (int i = 0; i <temp.size()-1; i++) {
+            int currentDifference = abs(temp[i]-temp[(i + 1)]);
+            ans = min(ans, currentDifference);
         }
+        // circular check
+        int circularDifference = abs(temp[temp.size()-1]-(temp[0] + 1440));
+        ans = min(ans,circularDifference);
         return ans;
     }
 };
