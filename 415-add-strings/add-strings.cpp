@@ -13,7 +13,7 @@ public:
             sum+=num2[j]-'0';
             j--;
         }
-        ans+='0'+(sum%10);
+        ans=to_string(sum%10)+ans;
         carry = sum/10;
         solve(num1,num2,carry,i,j,ans);
     }
@@ -23,7 +23,7 @@ public:
         int j = num2.size()-1;
         int carry =0;
         solve(num1,num2,carry,i,j,ans);
-        reverse(ans.begin(),ans.end());
+        // reverse(ans.begin(),ans.end());
         return ans;
     }
 };
