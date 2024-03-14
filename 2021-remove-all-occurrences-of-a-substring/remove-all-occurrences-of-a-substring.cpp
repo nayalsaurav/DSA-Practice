@@ -1,6 +1,6 @@
 class Solution {
 public:
-    string removeOccurrences(string s, string part) {
+    string removeOccurrences(string &s, string &part) {
         if(s.find(part)==string::npos){
             return s;
         }
