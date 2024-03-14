@@ -6,12 +6,8 @@ public:
         int profit = 0;
 
         for(int i=1;i<n;i++){
-            if(prices[i]<buy){
-                buy = prices[i];
-            }
-            else if(prices[i] - buy>profit){
-                profit = prices[i] - buy;
-            }
+            buy = min(prices[i],buy);
+            profit = max(profit,prices[i]-buy);
         }
         return profit;
         
