@@ -15,7 +15,7 @@ public:
                 if(k<0){ return false;}
             }
         }
-        return j==num2.size()&&(i-j)<=2;
+        return j==num2.size();
     }
     int minimumAddedInteger(vector<int>& num1, vector<int>& num2) {
        
