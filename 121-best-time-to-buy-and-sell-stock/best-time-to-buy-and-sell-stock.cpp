@@ -5,8 +5,8 @@ public:
         int minValue = INT_MAX;
         int maxProfit = INT_MIN;
         for(int i=0;i<n;i++){
-            minValue = min(minValue,prices[i]);
-            maxProfit = max((prices[i]-minValue),maxProfit);
+            minValue = min(minValue,prices[i]);//minValue at each index
+            maxProfit = max((prices[i]-minValue),maxProfit);//maxProfit till that index
         }
         return maxProfit;
     }
