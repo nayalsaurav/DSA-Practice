@@ -18,6 +18,7 @@ public:
                 }
             }
         }
+        // row =1 to n-1 && col =1 to m-1
         for (int i = 1; i < n; i++) {
             for (int j = 1; j < m; j++) {
                 if (matrix[i][j] != 0)
