@@ -14,8 +14,8 @@ public:
         vector<int>ans;
         while(count<totalElement){
             for(int i=colStart;i<=colEnd;i++){
-                ans.push_back(matrix[rowStart][i]);
                 if(count==totalElement) break;
+                ans.push_back(matrix[rowStart][i]);
                 count++;
 
             }
