@@ -1,21 +1,23 @@
 class Solution {
 public:
+    void pascal(int n,vector<int>&row){
+        int val = 1;
+        row.push_back(val);
+        for(int i=0;i<n;i++){
+            val*=(n-i);
+            val/=(i+1);
+            row.push_back(val);
+        }
+
+    }
     vector<vector<int>> generate(int numRows) {
         vector<vector<int>>ans;
-        if(numRows==1) ans.push_back({1});
-        else{
-        ans.push_back({1});
-        ans.push_back({1,1});
-        }
-        for(int i = 2;i<numRows;i++){
-        vector<int>row(i+1);
-            row[0]=1;
-            row[i]=1;
-            for(int j=0;j<ans[i-1].size()-1;j++){
-                row[j+1]=ans[i-1][j]+ans[i-1][j+1];
-            }
+        for(int i=0;i<numRows;i++){
+            vector<int>row;
+            pascal(i,row);
             ans.push_back(row);
         }
         return ans;
+
     }
 };
