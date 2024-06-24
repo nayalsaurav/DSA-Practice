@@ -4,7 +4,7 @@ public:
         int n = arr.size();
         int lo = 0;
         int hi = n-1;
-        int ans=-1;
+        int ans=n; // caution
         while(lo<=hi){
             int mid = lo+(hi-lo)/2;
             if(arr[mid]>=target){
@@ -15,14 +15,7 @@ public:
                 lo = mid+1;
             }
         }
-        if(ans==-1){
-            if(target<arr[0]){
-                return 0;
-            }
-            else{
-                return n;
-            }
-        }
+        
         return ans;
     }
 };
